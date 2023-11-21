@@ -3,7 +3,7 @@
 # Function that displays usage
 function usage() {
     echo "Usage:quest-install.sh <directory>"
-    echo "Example:quest-install.sh "Some cool homebrew"
+    echo "Example:quest-install.sh 'Some cool homebrew.com'"
     exit 1
 }
 
@@ -37,7 +37,7 @@ subdir=$(find "$dir" -mindepth 1 -maxdepth 1 -type d)
 apk_file=$(find "$dir" -mindepth 1 -maxdepth 1 -type f -name "*.apk")
 
 #make directory first needed for Quest3
-echo "making odd directory, if exists an error will appear, that's ok."
+echo "making odd directory, if exists an error will appear, that is ok."
 adb shell mkdir $(basename "$subdir") /sdcard/Android/obb/
 
 #Copy obb
@@ -49,3 +49,4 @@ echo "Installing .apk"
 adb install -g -r "$apk_file"
 
 echo "Done"
+
