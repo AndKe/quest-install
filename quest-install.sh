@@ -37,15 +37,15 @@ subdir=$(find "$dir" -mindepth 1 -maxdepth 1 -type d)
 apk_file=$(find "$dir" -mindepth 1 -maxdepth 1 -type f -name "*.apk")
 
 #make directory first needed for Quest3
-echo "making odd directory, if exists an error will appear, that is ok."
+echo "-Making obb directory, if exists an error will appear, that is ok."
 adb shell mkdir $(basename "$subdir") /sdcard/Android/obb/
 
 #Copy obb
-echo "Copying obb directory"
+echo "-Copying obb directory"
 adb push "$subdir" /sdcard/Android/obb/
 
 #install apk
-echo "Installing .apk"
+echo "-Installing .apk"
 adb install -g -r "$apk_file"
 
 echo "Done"
