@@ -10,6 +10,13 @@ fi
 # Get the directory name from the first argument
 dir=$1
 
+# Check is adb is installed, install if not.
+if [ $(dpkg-query -W -f='${Status}' adb 2>/dev/null | grep -c "ok installed") -eq 0 ];
+then
+  echo "You will be asked for pw to install adb"
+  sudo apt-get install adb;
+fi
+
 # Check if the directory exists
 if [ ! -d "$dir" ]; then
     echo "Error: $dir is not a directory"
