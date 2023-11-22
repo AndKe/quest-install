@@ -1,15 +1,10 @@
 #!/bin/bash
 
-# Function that displays usage
-function usage() {
+# If no arguments were provided, display usage
+if [ $# -eq 0 ]; then
     echo "Usage:quest-install.sh <directory>"
     echo "Example:quest-install.sh 'Some cool homebrew.com'"
     exit 1
-}
-
-# If no arguments were provided, display usage
-if [ $# -eq 0 ]; then
-    usage
 fi
 
 # Get the directory name from the first argument
